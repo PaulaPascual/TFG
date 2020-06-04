@@ -7,6 +7,31 @@ import { BrowserRouter, Route, Switch} from "react-router-dom";
 import PostList from "./PostList";
 import axios from 'axios';
 import Chat from "./Chat";
+import WelcomePage from "./Welcome/welcomePage";
+import HomePage from "./Home/homePage";
+import {Button, createMuiTheme, ThemeProvider, withStyles} from '@material-ui/core';
+
+
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#00f9f7',
+        },
+        secondary: {
+            main: '#003948',
+        },
+    },
+    overrides:{
+        MuiButton:{
+            root:{
+                maxWidth: 150,
+                minWidth: 150,
+            },
+        },
+    },
+
+})
 
 class App extends Component {
     componentDidMount(): void {
@@ -16,15 +41,15 @@ class App extends Component {
 
     render () {
         return (
-            <BrowserRouter>
-                <NavBar logged_in={localStorage.getItem("username") !== null}/>
-                <Switch>
-                    <Route path="/register" component={RegistrationForm}/>
-                    <Route path="/login" component={LoginForm}/>
-                    <Route path="/chat" component={Chat}/>
-                    <Route path="/" component={PostList}/>
-                </Switch>
-            </BrowserRouter>
+            <ThemeProvider theme={theme}>
+                <BrowserRouter>
+                    <NavBar/>
+                    <Switch>
+                        <Route path="/home" component={HomePage}/>
+                        <Route path="/" component={WelcomePage}/>
+                    </Switch>
+                </BrowserRouter>
+            </ThemeProvider>
         );
     }
 }
