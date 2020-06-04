@@ -5,24 +5,22 @@ import {Grid, List, Box} from "@material-ui/core";
 
 const HomePage = () => {
     return (
-        <Grid container direction="row" justify="center" alignItems="center">
-             <Grid item xs={4} container direction="column" justify="center" alignItems="center" style={{"maxHeight": "100%", "color": "#00f9f7"}}>
+        <Grid container direction="row" justify="center" alignItems="center" style={{"marginTop":"20vh"}}>
+             <Grid item sm={2} xs={12}container direction="column" justify="center" alignItems="center" style={{"maxHeight": "100%", "color": "#00f9f7"}}>
                 <img src={"/static/images/hola.png"} style={{"maxWidth": "60%"}}/>
                 <img src={"/static/images/hola.png"} style={{"maxWidth": "60%"}}/>
                 <img src={"/static/images/hola.png"} style={{"maxWidth": "60%"}}/>
             </Grid>
-            <Grid item xs={4} container justify="center" alignItems="center" style={{"maxHeight": "100%"}}>
+            <Grid item sm={6} xs={12} container justify="center" alignItems="center" style={{"maxHeight": "100%"}}>
                 <img src={"/static/images/tesla.jpg"} style={{"maxWidth": "60%"}}/>
             </Grid>
-           <Grid item xs={4} container direction="row" justify="center" alignItems="center" style={{"maxHeight": "100%", "color": "#00f9f7"}}>
-                <img src={"/static/images/hola.png"} style={{"maxWidth": "30%"}}/>
-                <img src={"/static/images/hola.png"} style={{"maxWidth": "30%"}}/>
-                <img src={"/static/images/hola.png"} style={{"maxWidth": "30%"}}/>
-                <img src={"/static/images/hola.png"} style={{"maxWidth": "30%"}}/>
-                <img src={"/static/images/hola.png"} style={{"maxWidth": "30%"}}/>
-                <img src={"/static/images/hola.png"} style={{"maxWidth": "30%"}}/>
-
-
+           <Grid item sm={2} xs={12} container direction="row" justify="center" alignItems="center" style={{"maxHeight": "100%", "color": "#00f9f7"}}>
+                <img src={"/static/images/hola.png"} style={{"maxWidth": "40%"}}/>
+                <img src={"/static/images/hola.png"} style={{"maxWidth": "40%"}}/>
+                <img src={"/static/images/hola.png"} style={{"maxWidth": "40%"}}/>
+                <img src={"/static/images/hola.png"} style={{"maxWidth": "40%"}}/>
+                <img src={"/static/images/hola.png"} style={{"maxWidth": "40%"}}/>
+                <img src={"/static/images/hola.png"} style={{"maxWidth": "40%"}}/>
             </Grid>
         </Grid>
     );
