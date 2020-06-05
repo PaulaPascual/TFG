@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 import './App.css';
 import NavBar from "./NavBar";
-import LoginForm from "./LoginForm";
-import RegistrationForm from "./RegistrationForm";
-import { BrowserRouter, Route, Switch} from "react-router-dom";
-import PostList from "./PostList";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import axios from 'axios';
-import Chat from "./Chat";
 import WelcomePage from "./Welcome/welcomePage";
 import HomePage from "./Home/homePage";
-import {Button, createMuiTheme, ThemeProvider, withStyles} from '@material-ui/core';
+import {createMuiTheme, ThemeProvider} from '@material-ui/core';
 
 
 
