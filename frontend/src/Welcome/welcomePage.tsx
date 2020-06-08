@@ -14,7 +14,7 @@ export default function WelcomePage() {
     }
 
     return (
-        <Grid container direction="row" justify="center" alignItems="center" style={{"marginTop":"20vh"}}>
+        <Grid container direction="row" justify="center" alignItems="center" style={{"marginTop":"5vh"}}>
             <Grid item xs={12} sm={6}container justify="center" alignItems="center" style={{"maxHeight": "100%"}}>
                 <img src={"/static/images/tesla.jpg"} style={{"maxWidth": "60%"}}/>
             </Grid>

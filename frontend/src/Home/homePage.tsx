@@ -4,7 +4,7 @@ import React from "react";
 
 const HomePage = () => {
     return (
-        <Grid container direction="row" justify="center" alignItems="center" style={{"marginTop":"20vh"}}>
+        <Grid container direction="row" justify="center" alignItems="center" style={{"marginTop":"5vh"}}>
              <Grid item sm={2} xs={12}container direction="column" justify="center" alignItems="center" style={{"maxHeight": "100%", "color": "#00f9f7"}}>
                 <img src={"/static/images/hola.png"} style={{"maxWidth": "60%"}}/>
                 <img src={"/static/images/hola.png"} style={{"maxWidth": "60%"}}/>

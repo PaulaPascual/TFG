@@ -21,6 +21,10 @@ from rest_framework import routers
 from rest_framework_jwt.views import obtain_jwt_token
 
 from post.api import PostViewSet, UserViewSet
+from post import views
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register(r'post', PostViewSet, basename='Post')
@@ -30,5 +34,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url('^api/', include(router.urls)),
     path('auth/', obtain_jwt_token),  # Sesión
+    path('upload/', views.upload, name='upload'),
     url(r'', TemplateView.as_view(template_name='index.html')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
