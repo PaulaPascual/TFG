@@ -9,11 +9,6 @@ const NavBar = () => {
                 <a href={"/"}>
                     <img src={"/static/images/logo.png"} style={{"maxWidth": "15%"}} />
                 </a>
-                <div style={{"float": "right"}}>
-                    <Link to="/">Welcome</Link>
-                <Link to="/home">Home</Link>
-                </div>
-
             </Toolbar>
         </AppBar>
     );

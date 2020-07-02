@@ -16,9 +16,16 @@ class WelcomePage extends Component<any, any> {
             </Grid>
             <Grid item xs={12} sm={6} container direction="column" justify="center" alignItems="center" style={{"maxHeight": "100%", "color": "#00f9f7"}}>
                 <img src={"/static/images/hola.png"} style={{"maxWidth": "60%"}}/>
-                que tal
+                <div>Esta página web se ha creado </div>
+                <div>para que puedas procesar tus imagenes</div>
+                <div>mediante una Red Neuronal y conseguir</div>
+                <div>una imagen totalmente nueva.</div>
+                <div>¿Lo pruebas?</div>
+                <Grid item xs={12} sm={6} container direction="column" justify="center" alignItems="center" style={{"maxHeight": "100%", "margin": "2vh", "color": "#00f9f7"}}>
                 <Button variant="contained" color="primary" onClick={this.goHome}>Empezar</Button>
             </Grid>
+            </Grid>
+
         </Grid>
         );
     }
