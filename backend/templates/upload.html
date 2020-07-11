@@ -6,8 +6,11 @@
     <div>upload</div>
     <form method="post" enctype="multipart/form-data">
         <input type="file" name="document">
-        <button type="submit">Upload file</button>
+        <button type="submit">Subir</button>
     </form>
+    {%if url %}
+    <p>Uploaded file: <img src="{{url}}"></p>
+    {% endif %}
 </head>
 <body>
 
