@@ -2,17 +2,10 @@ input[type="file"] {
     display: none;
 }
 
-.custom-file-upload {
-    background-color: #00f9f7;
-    color: #003948;
+.upload__image-wrapper{
     text-align: center;
-    display: inline-block;
-    padding: 6px 12px;
-    cursor: pointer;
-    border-radius: 10%;
-    max-width: 125px;
-    min-width: 125px;
-    min-height: 25px;
-
-
+    position: relative;
+}
+.image-item{
+    display: block;
 }

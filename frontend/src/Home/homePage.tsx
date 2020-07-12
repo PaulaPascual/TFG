@@ -6,22 +6,12 @@ import "./homePage.css"
 
 
 class HomePage extends Component<any, any>{
-
-
     state = {
-      selectedFile: null,
-      name: "sin imagen",
       style: 1,
     }
 
-    fileSelectedHandler =(e: any)=>{
-      var reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      this.setState({
-          selectedFile: e.target.files[0],
-          name: e.target.files[0].name,
-      })
-        console.log(e.target.files[0])
+    mezclar =(e:any)=>{
+        console.log("mezclo")
     }
 
     ola=(e: any)=>{
@@ -39,6 +29,16 @@ class HomePage extends Component<any, any>{
           style: 3
       })
     }
+    subir = (e:any) => {
+        const data = new FormData()
+        data.append('file', e[0].file);
+        data.append('style', '' + this.state.style)
+        axios.post("/upload/", data).then(r => {
+            r.data['imagen']
+            this.setState('')
+        });
+    }
+
     render(){
         return (
         <Grid container direction="row" justify="center" alignItems="center" style={{"marginTop":"5vh"}}>
@@ -48,12 +48,23 @@ class HomePage extends Component<any, any>{
                 <img src={"/static/images/paso_tres.png"} style={{"maxWidth": "100%"}}/>
             </Grid>
             <Grid item sm={6} xs={12} container direction="column" justify="center" alignItems="center" style={{"maxHeight": "100%"}}>
-                <label htmlFor="file-upload" className="custom-file-upload">
-                    SUBE TU IMAGEN
-                </label>
-                <input id="file-upload" type="file" onChange={this.fileSelectedHandler}/>
-                <div style={{"color": "#00f9f7"}}>{this.state.name}</div>
-                <Button variant="contained" color="primary" >MEZCLA</Button>
+            <ImageUploading onChange={this.subir}>
+                    {({ imageList, onImageUpload }) => (
+                      // write your building UI
+                      <div className="upload__image-wrapper">
+                        {imageList.map(image => (
+                          <div key={image.key} className="image-item">
+                            <img src={image.dataURL} alt="" style={{"maxWidth": "100%"}} />
+                            <div>
+                                <Button variant="contained" color="primary" onClick={this.mezclar} >MEZCLA</Button>
+                            </div>
+                          </div>
+                        ))}
+                        <Button onClick={onImageUpload}>Upload images</Button>
+                      </div>
+                    )}
+                  </ImageUploading>
+
             </Grid>
            <Grid item sm={2} xs={12} container direction="row" justify="center" alignItems="center" style={{"maxHeight": "100%", "color": "#00f9f7"}}>
                 <input type="image" src={"/static/images/ola.png"} style={{"maxWidth": "60%", "margin": "1vh"}} onClick={this.ola}/>

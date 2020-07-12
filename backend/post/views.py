@@ -6,10 +6,18 @@ from django.core.files.storage import FileSystemStorage
 def upload(request):
     context = {}
     if request.method == 'POST':
-        upload_file = request.FILES['document']
-        print(upload_file.name)
-        print(upload_file.size)
+        f = request.FILES['file']
         fs = FileSystemStorage()
-        name = fs.save(upload_file.name, upload_file)
+        name = fs.save(f.name, f)
         context['url'] = fs.url(name)
+        style = int(request.POST.get('style', 0))
+
+        img = load_img(f'media/{name}')
+        # prediction = model.predict(…)
+
+        # Guardamos la imagen
+
+        result_image_name = ''
+
+        return HttpResponse(json.dumps({'result_image': fs.url(name=result_image_name)}), content_type='application/json')
     return render(request, 'upload.html', context)

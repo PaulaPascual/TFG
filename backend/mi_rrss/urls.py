@@ -30,7 +30,7 @@ router = routers.DefaultRouter()
 router.register(r'post', PostViewSet, basename='Post')
 router.register(r'user', UserViewSet)
 
-urlpatterns = [
+urlpatterns = static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + [
     path('admin/', admin.site.urls),
     url('^api/', include(router.urls)),
     path('auth/', obtain_jwt_token),  # Sesión
