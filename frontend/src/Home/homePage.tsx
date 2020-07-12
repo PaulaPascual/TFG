@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import React, {Component} from "react";
 import axios from "axios";
 import "./homePage.css"
+import ImageUploading from "react-images-uploading"
 
 
 class HomePage extends Component<any, any>{
@@ -18,16 +19,21 @@ class HomePage extends Component<any, any>{
       this.setState({
           style: 1
       })
+                console.log(this.state.style)
+
     }
   van=(e: any)=>{
       this.setState({
           style: 2
       })
+              console.log(this.state.style)
+
     }
     guernica=(e: any)=>{
       this.setState({
           style: 3
       })
+        console.log(this.state.style)
     }
     subir = (e:any) => {
         const data = new FormData()
@@ -55,12 +61,12 @@ class HomePage extends Component<any, any>{
                         {imageList.map(image => (
                           <div key={image.key} className="image-item">
                             <img src={image.dataURL} alt="" style={{"maxWidth": "100%"}} />
-                            <div>
+                            <div className="button-mezcla">
                                 <Button variant="contained" color="primary" onClick={this.mezclar} >MEZCLA</Button>
                             </div>
                           </div>
                         ))}
-                        <Button onClick={onImageUpload}>Upload images</Button>
+                        <Button variant="contained" color="primary" onClick={onImageUpload}>SUBE TU IMAGEN</Button>
                       </div>
                     )}
                   </ImageUploading>
