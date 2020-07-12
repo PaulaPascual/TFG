@@ -8,11 +8,9 @@ import ImageUploading from "react-images-uploading"
 
 class HomePage extends Component<any, any>{
     state = {
+        selectedFile: '',
       style: 1,
-    }
-
-    mezclar =(e:any)=>{
-        console.log("mezclo")
+      result: ''
     }
 
     ola=(e: any)=>{
@@ -35,14 +33,18 @@ class HomePage extends Component<any, any>{
       })
         console.log(this.state.style)
     }
+
+    fileSelectedHandler = (e:any)=>{
+        this.setState({
+            selectedFile: e[0].file
+        })
+        console.log("ok")
+    }
     subir = (e:any) => {
         const data = new FormData()
-        data.append('file', e[0].file);
+        data.append('file', this.state.selectedFile);
         data.append('style', '' + this.state.style)
-        axios.post("/upload/", data).then(r => {
-            r.data['imagen']
-            this.setState('')
-        });
+        axios.post("/upload/", data);
     }
 
     render(){
@@ -54,7 +56,7 @@ class HomePage extends Component<any, any>{
                 <img src={"/static/images/paso_tres.png"} style={{"maxWidth": "100%"}}/>
             </Grid>
             <Grid item sm={6} xs={12} container direction="column" justify="center" alignItems="center" style={{"maxHeight": "100%"}}>
-            <ImageUploading onChange={this.subir}>
+            <ImageUploading onChange={this.fileSelectedHandler}>
                     {({ imageList, onImageUpload }) => (
                       // write your building UI
                       <div className="upload__image-wrapper">
@@ -62,7 +64,7 @@ class HomePage extends Component<any, any>{
                           <div key={image.key} className="image-item">
                             <img src={image.dataURL} alt="" style={{"maxWidth": "100%"}} />
                             <div className="button-mezcla">
-                                <Button variant="contained" color="primary" onClick={this.mezclar} >MEZCLA</Button>
+                                <Button variant="contained" color="primary" onClick={this.subir} >MEZCLA</Button>
                             </div>
                           </div>
                         ))}
