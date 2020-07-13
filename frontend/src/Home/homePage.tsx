@@ -10,7 +10,8 @@ class HomePage extends Component<any, any>{
     state = {
         selectedFile: '',
       style: 1,
-      result: ''
+      result: '',
+        loading: false
     }
 
     ola=(e: any)=>{
@@ -31,16 +32,26 @@ class HomePage extends Component<any, any>{
 
     fileSelectedHandler = (e:any)=>{
         this.setState({
-            selectedFile: e[0].file
+            selectedFile: e[0].file,
+            result: ''
         })
     }
     subir = (e:any) => {
         const data = new FormData()
         data.append('file', this.state.selectedFile);
         data.append('style', '' + this.state.style)
-        console.log("mezclanmdo");
+        this.setState({
+            loading: true
+        })
         axios.post("/upload/", data).then(r=>{
-            this.setState({result:r.data['result_image']})
+            this.setState({
+                result:r.data['result_image'],
+                loading: false
+            })
+        }).catch(e=>{
+            this.setState({
+              loading: false
+            })
         });
     }
 
@@ -60,10 +71,11 @@ class HomePage extends Component<any, any>{
                         {imageList.map(image => (
                           <div key={image.key} className="image-item">
                             <img src={image.dataURL} alt="" style={{"maxWidth": "100%"}} />
-                           <CircularProgress />
-                            <img src={this.state.result}/>
-                            <CircularProgress color="secondary" />
-
+                              {this.state.loading
+                              ? <CircularProgress/>
+                              : <div></div>
+                              }
+                              <img src={this.state.result}/>
                             <div className="button-mezcla">
                                 <Button variant="contained" color="primary" onClick={this.subir} >MEZCLA</Button>
                             </div>
@@ -73,7 +85,6 @@ class HomePage extends Component<any, any>{
                       </div>
                     )}
                   </ImageUploading>
-
             </Grid>
            <Grid item sm={2} xs={12} container direction="row" justify="center" alignItems="center" style={{"maxHeight": "100%", "color": "#00f9f7"}}>
                 <input type="image" src={"/static/images/ola.png"} style={{"maxWidth": "60%", "margin": "1vh"}} onClick={this.ola}/>
