@@ -1,7 +1,5 @@
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
-from tensorflow.keras.preprocessing import load_img, img_to_array
-from tensorflow.keras.models import load_model
 from django.http import HttpResponse
 from evaluate import process_image
 import json

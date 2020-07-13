@@ -17,33 +17,28 @@ class HomePage extends Component<any, any>{
       this.setState({
           style: 1
       })
-                console.log(this.state.style)
-
     }
   van=(e: any)=>{
       this.setState({
           style: 2
       })
-              console.log(this.state.style)
-
     }
     guernica=(e: any)=>{
       this.setState({
           style: 3
       })
-        console.log(this.state.style)
     }
 
     fileSelectedHandler = (e:any)=>{
         this.setState({
             selectedFile: e[0].file
         })
-        console.log("ok")
     }
     subir = (e:any) => {
         const data = new FormData()
         data.append('file', this.state.selectedFile);
         data.append('style', '' + this.state.style)
+        console.log("mezclanmdo");
         axios.post("/upload/", data).then(r=>{
             this.setState({result:r.data['result_image']})
         });
@@ -65,6 +60,10 @@ class HomePage extends Component<any, any>{
                         {imageList.map(image => (
                           <div key={image.key} className="image-item">
                             <img src={image.dataURL} alt="" style={{"maxWidth": "100%"}} />
+                           <CircularProgress />
+                            <img src={this.state.result}/>
+                            <CircularProgress color="secondary" />
+
                             <div className="button-mezcla">
                                 <Button variant="contained" color="primary" onClick={this.subir} >MEZCLA</Button>
                             </div>

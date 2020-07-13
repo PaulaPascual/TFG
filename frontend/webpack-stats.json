@@ -1,1 +1,1 @@
-{"status":"done","chunks":{"main":[{"name":"bundle.js","path":"/static/assets/bundles/bundle.js"}]}}
+{"status":"error","error":"unknown-error","message":"[tsl] ERROR in /app/src/Home/homePage.tsx(63,29)\n      TS2304: Cannot find name 'CircularProgress'."}
