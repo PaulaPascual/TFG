@@ -28,7 +28,7 @@ services:
       - ./static:/static
       - ./frontend:/app/frontend/
     environment:
-      - DJANGO_SETTINGS_MODULE=mi_rrss.settings
+      - DJANGO_SETTINGS_MODULE=imagic.settings
       - PYTHONUNBUFFERED=1
     expose:
       - "8000"

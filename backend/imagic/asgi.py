@@ -1,5 +1,5 @@
 """
-ASGI config for mi_rrss project.
+ASGI config for imagic project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
