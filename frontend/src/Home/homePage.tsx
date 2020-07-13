@@ -4,6 +4,7 @@ import React, {Component} from "react";
 import axios from "axios";
 import "./homePage.css"
 import ImageUploading from "react-images-uploading"
+import { CircularProgress } from '@material-ui/core';
 
 
 class HomePage extends Component<any, any>{
