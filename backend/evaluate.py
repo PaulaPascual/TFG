@@ -73,6 +73,6 @@ def ffwd(data_in, paths_out, checkpoint_dir, device_t='/gpu:0', batch_size=4):
 
 
 def process_image(image_name, model):
-    out_name = f'media/out/{image_name.split("/")[-1]}'
+    out_name = f'/media/out/{image_name.split("/")[-1]}'
     ffwd([image_name], [out_name], f'models/{model}', device_t='/gpu:0')
     return out_name

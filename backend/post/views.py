@@ -21,7 +21,7 @@ def upload(request):
         elif style == 3:
             model = 'checkpoint_guernica'
 
-        out_name = process_image(f'media/{name}', model)
+        out_name = process_image(f'/media/{name}', model)
         return HttpResponse(json.dumps({'result_image': out_name}), content_type='application/json')
 
     return render(request, 'upload.html', context)
