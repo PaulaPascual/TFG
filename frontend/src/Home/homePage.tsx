@@ -72,7 +72,7 @@ class HomePage extends Component<any, any>{
                         {imageList.map(image => (
                           <div key={image.key} className="image-item">
                             <img src={image.dataURL} alt="" style={{"maxWidth": "600px"}} />
-                            <br>
+                              <br></br>
                             {this.state.loading
                               ? <CircularProgress/>
                               : <div></div>
