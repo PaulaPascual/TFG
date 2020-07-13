@@ -10,6 +10,7 @@ services:
     volumes:
       - ./config/nginx:/etc/nginx/conf.d
       - ./static:/static
+      - ./media:/media
     depends_on:
       - backend
   backend:
@@ -26,6 +27,7 @@ services:
     volumes:
       - ./backend:/app
       - ./static:/static
+      - ./media:/media
       - ./frontend:/app/frontend/
     environment:
       - DJANGO_SETTINGS_MODULE=imagic.settings

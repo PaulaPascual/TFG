@@ -71,12 +71,13 @@ class HomePage extends Component<any, any>{
                       <div className="upload__image-wrapper">
                         {imageList.map(image => (
                           <div key={image.key} className="image-item">
-                            <img src={image.dataURL} alt="" style={{"maxWidth": "100%"}} />
-                              {this.state.loading
+                            <img src={image.dataURL} alt="" style={{"maxWidth": "600px"}} />
+                            <br>
+                            {this.state.loading
                               ? <CircularProgress/>
                               : <div></div>
                               }
-                              <img src={this.state.result}/>
+                              <img src={this.state.result} style={{"maxWidth": "600px"}}/>
                             <div className="button-mezcla">
                                 <Button variant="contained" color="primary" onClick={this.subir} >MEZCLA</Button>
                             </div>

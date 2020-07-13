@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-2pl&!h7jvdr3^6a5ye@$ca#4v8y%n6&^_63y5j8+2f$ve60pr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['backend']
 
@@ -135,7 +135,7 @@ STATICFILES_DIRS = [
     #os.path.join(BASE_DIR, 'frontend', 'assets'),
 ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/media/'
 MEDIA_URL ='/media/'
 
 CORS_ORIGIN_ALLOW_ALL = True
