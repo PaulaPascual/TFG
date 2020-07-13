@@ -44,7 +44,9 @@ class HomePage extends Component<any, any>{
         const data = new FormData()
         data.append('file', this.state.selectedFile);
         data.append('style', '' + this.state.style)
-        axios.post("/upload/", data);
+        axios.post("/upload/", data).then(r=>{
+            this.setState({result:r.data['result_image']})
+        });
     }
 
     render(){
