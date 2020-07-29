@@ -6,6 +6,6 @@ django-webpack-loader==0.7.0
 channels==2.4.0
 psycopg2==2.8.5
 channels-redis==2.4.2
-uvicorn==0.11.3
+uvicorn==0.11.7
 tensorflow==2.1.0
 imageio==2.9.0
